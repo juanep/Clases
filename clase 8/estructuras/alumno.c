@@ -32,12 +32,26 @@ void mostrarListadoDeAlumnos(sAlumno listado[], int tam){
     }
 }
 
-void ordenarListadoDeAlumnos(sAlumno listado[], int tam){
+void ordenarListadoDeAlumnosNombre(sAlumno listado[], int tam){
     int i, j;
     sAlumno aux;
     for(i=0; i<tam-1; i++){
         for(j=i+1; j<tam; j++){
             if(strcmp(listado[i].nombre,listado[j].nombre)>0){
+                aux = listado[i];
+                listado[i] = listado[j];
+                listado[j] = aux;
+            }
+        }
+    }
+}
+
+void ordenarListadoDeAlumnosPromedio(sAlumno listado[], int tam){
+    int i, j;
+    sAlumno aux;
+    for(i=0; i<tam-1; i++){
+        for(j=i+1; j<tam; j++){
+            if(strcmp(listado[i].prom,listado[j].prom)>0){
                 aux = listado[i];
                 listado[i] = listado[j];
                 listado[j] = aux;
