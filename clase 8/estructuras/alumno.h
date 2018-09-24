@@ -5,6 +5,7 @@ typedef struct{
     int pp;
     int sp;
     float prom;
+    int estado;
 }sAlumno;
 
 /** \brief
@@ -24,9 +25,9 @@ sAlumno pedirAlumno();
 /** \brief
  * \param
  * \param
- * \return
+ * \return int -1: si no hay lugar. >=0 si hay lugar
  */
-void cargarListadoDeAlumnos(sAlumno listado[], int tam);
+int cargarListadoDeAlumnos(sAlumno listado[], int tam);
 
 /** \brief
  * \param
@@ -41,3 +42,10 @@ void mostrarListadoDeAlumnos(sAlumno listado[], int tam);
  * \return
  */
 void ordenarListadoDeAlumnos(sAlumno listado[], int tam);
+
+/** \brief
+ * \param
+ * \param
+ * \return
+ */
+int buscarLibre(sAlumno [], int);

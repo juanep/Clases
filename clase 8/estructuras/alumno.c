@@ -20,15 +20,32 @@ sAlumno pedirAlumno(){
     return alumnito;
 }
 
-void cargarListadoDeAlumnos(sAlumno listado[], int tam){
-    for(int i=0; i<tam; i++){
-        listado[i] = pedirAlumno();
+int cargarListadoDeAlumnos(sAlumno listado[], int tam){
+    int index;
+    index = buscarLibre(listado, tam);
+    if(index!=-1){
+        listado[index] = pedirAlumno();
+        listado[index].estado = OCUPADO;
     }
+    return index;
+}
+
+int buscarLibre(sAlumno lista[], int tam){
+    int flag = -1;
+    for(int i=0; i<tam; i++){
+        if(lista[i].estado==VACIO){
+            flag = i;
+            break;
+        }
+    }
+    return flag;
 }
 
 void mostrarListadoDeAlumnos(sAlumno listado[], int tam){
     for(int i=0; i<tam; i++){
-        mostrarUnAlumno(listado[i]);
+        if(listado[i].estado==OCUPADO){
+            mostrarUnAlumno(listado[i]);
+        }
     }
 }
 
