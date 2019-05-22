@@ -1,0 +1,57 @@
+========================================================================
+				ARCHIVOS
+========================================================================
+
+_ Binarios (código máquina/ binario) Estructuras.
+
+_ Texto (texto plano).
+
+Funciones:
+
+FILE *fopen(const char *nombre_del_archivo, const char *modo);	// abre el archivo == NULL ? NULL : retorna FILE*
+
+int fclose(FILE *fp);	// cierra el archivo.
+
+int fcloseall(void);	// cierra todos los archivos.
+
+int fread(void *memoria,int num,int cont,FILE *fp);	// 
+
+int fwrite(void *memoria,int num,int cont,FILE *fp);
+int fclose(FILE *f);
+int feof(FILE *f);
+int ferror(FILE *fp);
+void rewind(FILE *fp);
+int fseek(FILE *fp,long num,int origen);
+long ftell(FILE *f);
+int getc(FILE *fp);
+int putc(int ch,FILE *fp);
+char* fgets(char *str,int n,FILE *fp);
+int fputs(const char *str,FILE *fp);
+int fscanf(FILE *fp,const char *formato[,dirección,...]);
+int fprintf(FILE *fp,const char *formato[,argumento,...]);
+
+
+ // param
+ // return 
+ FILE* pArch(){
+
+	FILE *parch;
+	//Se abre en modo lectura
+	if((parch=fopen("banco.dat","rb"))==NULL){
+
+		//Si el modo anterior dio error el archivo no existe, 
+		if((parch=fopen("banco.dat","wb"))==NULL){
+
+			
+			printf("\nEl archivo no puede ser abierto");
+		}
+
+	// por lo tanto se crea
+	fclose(parch);
+	}
+
+	// retorna el puntero al archivo
+	return pArch;
+}
+
+while ( !feof(archivo) ) == while ( feof == 0 ) // mientras no llegue al final del archivo 
